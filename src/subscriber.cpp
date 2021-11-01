@@ -3,7 +3,7 @@
  * @brief tutorial demonstrates simple receipt of messages over the ROS system.
  * @author Advait Patole
  *
- * Copyright (c) 2021 Advait Patole, Gaurav Raut
+ * Copyright (c) 2021 Advait Patole
  *
  * MIT License
  *
