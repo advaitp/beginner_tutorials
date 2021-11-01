@@ -1,8 +1,5 @@
-#include "ros/ros.h"
-#include "std_msgs/String.h"
-
 /**
- * @file Camera.cpp
+ * @file subscriber.cpp
  * @brief tutorial demonstrates simple receipt of messages over the ROS system.
  * @author Advait Patole
  *
@@ -28,6 +25,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+#include "ros/ros.h"
+#include "std_msgs/String.h"
 
 void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {

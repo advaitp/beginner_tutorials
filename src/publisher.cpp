@@ -1,10 +1,5 @@
-#include "ros/ros.h"
-#include "std_msgs/String.h"
-
-#include <sstream>
-
 /**
- * @file Camera.cpp
+ * @file publisher.cpp
  * @brief tutorial demonstrates simple sending of messages over the ROS system.
  * @author Advait Patole
  *
@@ -30,6 +25,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include <sstream>
 
 int main(int argc, char **argv)
 {
