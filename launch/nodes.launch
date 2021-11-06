@@ -1,0 +1,5 @@
+<launch>
+   <arg name="rate"/>
+   <node pkg="beginner_tutorials" type="publisher" name="publisher_node" args="$(arg rate)" respawn="false" output="screen"/>
+   <node pkg="beginner_tutorials" type="subscriber" name="subscriber_node" respawn="false" output="screen"/>
+</launch>
