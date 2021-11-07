@@ -39,7 +39,27 @@ source ./devel/setup.bash
 ```
 rosrun beginner_tutorials publisher
 ```
-3. To run the subscriber node
+4. To run the subscriber node
 ```
 rosrun beginner_tutorials subscriber
 ```
+5. To launch the nodes using launch file
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials nodes.launch rate:="5"
+```
+6.To call the service to change the string
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosservice call /change_string "Add new string"
+```
+7.To check the logging level using rqt_console and rqt_logger_level
+```
+rosrun rqt_logger_level rqt_logger_level
+```
+8.In new terminal 
+```
+rosrun rqt_console rqt_console
+``` 
