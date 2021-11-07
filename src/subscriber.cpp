@@ -77,6 +77,5 @@ int main(int argc, char **argv) {
    * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
    */
   ros::spin();
-
   return 0;
 }

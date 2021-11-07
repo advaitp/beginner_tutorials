@@ -31,33 +31,26 @@
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_string.h"
 
-extern std::string new_str = "Changed output string" ;
+extern std::string new_str = "Changed output string";
 
-
-bool change(beginner_tutorials::change_string::Request  &req, beginner_tutorials::change_string::Response &res)
-{
+bool change(const beginner_tutorials::change_string::Request &req, /
+  const beginner_tutorials::change_string::Response &res) {
   res.output = req.input;
   new_str = res.output;
   ROS_INFO("String has been modified to %s", res.output.c_str());
   return true;
 }
 
-int main(int argc, char **argv) 
-{
-
+int main(int argc, char **argv)  {
   // taking input loop rate
-  int rate ;
+  int rate;
 
   rate = atoll(argv[1]);
 
-  if(rate < 1) 
-  {
+  if (rate < 1)  {
     ROS_FATAL_STREAM("The loop rate cannot be less than or equal to zero");
-    return 0 ;
-  }
-
-  else 
-  {
+    return 0;
+  } else  {
     /**
      * The ros::init() function needs to see argc and argv so that it can perform
      * any ROS arguments and name remapping that were provided at the command line.
@@ -106,32 +99,23 @@ int main(int argc, char **argv)
      * a unique string for each message.
      */
     int count = 0;
-    while (ros::ok()) 
-    {
+    while (ros::ok()) {
         /**
          * This is a message object. You stuff it with data, and then publish it.
          */
         std_msgs::String msg;
 
-        if(rate < 10) 
-        {
+        if (rate < 10)  {
           ROS_WARN_STREAM("Loop rate is slow increase the loop rate");
-        }
-
-        else 
-        {
+        } else  {
           ROS_INFO_STREAM("Loop Rate is "<< rate);
         }
 
         std::stringstream ss;
         ss << new_str << " " <<count;
-        if(new_str.size() == 0) 
-        {
+        if (new_str.size() == 0)  {
           ROS_ERROR_STREAM("Send some data between nodes");
-        }
-
-        else 
-        {
+        } else {
           ROS_DEBUG_STREAM("New String is "<< new_str);
         }
 
