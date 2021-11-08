@@ -39,8 +39,8 @@ extern std::string new_str = "Changed output string";
  *
  * @pre
  * @post
- * @param req
- * @param resp
+ * @param req Service Request
+ * @param resp Service Response
  * @return true
  */
 bool change(const beginner_tutorials::change_string::Request &req, /
