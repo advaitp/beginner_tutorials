@@ -61,10 +61,11 @@ bool change(const beginner_tutorials::change_string::Request &req, /
  * @return 0
  */
 int main(int argc, char **argv)  {
-  // taking input loop rate
+  // Taking input loop rate
   int rate;
   rate = atoll(argv[1]);
 
+  // Checking the loop rate for critical condition
   if (rate < 1)  {
     ROS_FATAL_STREAM("The loop rate cannot be less than or equal to zero");
     return 0;
@@ -129,7 +130,6 @@ int main(int argc, char **argv)  {
         } else  {
           ROS_INFO_STREAM("Loop Rate is "<< rate);
         }
-
 
         std::stringstream ss;
         ss << new_str << " " <<count;
