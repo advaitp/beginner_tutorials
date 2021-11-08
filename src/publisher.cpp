@@ -31,8 +31,18 @@
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_string.h"
 
+// Default string that will be displayed
 extern std::string new_str = "Changed output string";
 
+/**
+ * @brief  Function to change output string using by calling rosservice
+ *
+ * @pre
+ * @post
+ * @param req
+ * @param resp
+ * @return true
+ */
 bool change(const beginner_tutorials::change_string::Request &req, /
   const beginner_tutorials::change_string::Response &res) {
   res.output = req.input;
@@ -41,10 +51,18 @@ bool change(const beginner_tutorials::change_string::Request &req, /
   return true;
 }
 
+/**
+ * @brief  Main function of publisher.cpp
+ *
+ * @pre
+ * @post
+ * @param argc
+ * @param argv
+ * @return 0
+ */
 int main(int argc, char **argv)  {
   // taking input loop rate
   int rate;
-
   rate = atoll(argv[1]);
 
   if (rate < 1)  {
@@ -105,14 +123,17 @@ int main(int argc, char **argv)  {
          */
         std_msgs::String msg;
 
+        // Checking the loop rate to be considered slow or normal
         if (rate < 10)  {
           ROS_WARN_STREAM("Loop rate is slow increase the loop rate");
         } else  {
           ROS_INFO_STREAM("Loop Rate is "<< rate);
         }
 
+
         std::stringstream ss;
         ss << new_str << " " <<count;
+        // Checking whether some string is passed or not
         if (new_str.size() == 0)  {
           ROS_ERROR_STREAM("Send some data between nodes");
         } else {

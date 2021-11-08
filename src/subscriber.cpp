@@ -30,10 +30,26 @@
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_string.h"
 
+/**
+ * @brief Function to print the publisher message that is received by subscriber on screen
+ *
+ * @pre
+ * @post
+ * @param msg
+ */
 void chatterCallback(const std_msgs::String::ConstPtr& msg) {
   ROS_INFO("I heard: %s", msg->data.c_str());
 }
 
+/**
+ * @brief Main function of subscriber.cpp
+ *
+ * @pre
+ * @post
+ * @param argc
+ * @param argv
+ * @return 0
+ */
 int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
