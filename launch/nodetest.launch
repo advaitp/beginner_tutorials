@@ -1,0 +1,5 @@
+<launch>
+  <arg name="rate" default="10" />
+  <node pkg="beginner_tutorials" type="publisher" name="publisher_node" args="$(arg rate)" respawn="false" output="screen"/>
+  <test test-name="testpublisher_node" pkg="beginner_tutorials" type="testpublisher" />
+</launch>
