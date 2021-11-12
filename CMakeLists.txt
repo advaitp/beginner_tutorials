@@ -33,3 +33,7 @@ target_link_libraries(subscriber ${catkin_LIBRARIES})
 add_dependencies(subscriber beginner_tutorials_generate_messages_cpp)
 
 
+if (CATKIN_ENABLE_TESTING)
+  add_rostest_gtest(testpublisher launch/nodetest.launch test/testpublisher.cpp)
+  target_link_libraries(testpublisher ${catkin_LIBRARIES})
+endif()
