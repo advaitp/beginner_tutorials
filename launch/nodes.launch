@@ -4,6 +4,6 @@
    <node pkg="beginner_tutorials" type="subscriber" name="subscriber_node" respawn="false" output="screen"/>
 
    <arg name="record" default="true" />
-   <arg name="bags_directory" value="/home/advait/catkin_ws/src/beginner_tutorials/results"/>
+   <arg name="bags_directory" value="$(find beginner_tutorials)/results"/>
    <node pkg="rosbag" type="record" name="rosbag_record_topics" args="record --duration=30 -o $(arg bags_directory)/bag /rosout /tf /chatter /rosout_agg" if="$(arg record)" />
 </launch>
