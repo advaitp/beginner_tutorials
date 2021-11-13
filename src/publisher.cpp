@@ -156,7 +156,7 @@ int main(int argc, char **argv)  {
          */
         chatter_pub.publish(msg);
 
-        transform.setOrigin( tf::Vector3(1.0, 3.0, 1.0) );
+        transform.setOrigin(tf::Vector3(1.0, 3.0, 1.0));
         tf::Quaternion q;
         q.setRPY(4.0, 3.0, 2.0);
         transform.setRotation(q);
