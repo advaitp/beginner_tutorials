@@ -5,11 +5,11 @@
 #include <tf/transform_broadcaster.h>
 #include "tf/transform_listener.h"
 
-std::shared_ptr<ros::NodeHandle> nh;
 
 TEST(TESTSuite, checkService)
 {
-  ros::ServiceClient client = nh->serviceClient<beginner_tutorials::change_string>("change_string");
+  ros::NodeHandle nh;
+  ros::ServiceClient client = nh.serviceClient<beginner_tutorials::change_string>("change_string");
   bool exists(client.waitForExistence(ros::Duration(1)));
   EXPECT_TRUE(exists);
 
@@ -21,6 +21,7 @@ TEST(TESTSuite, checkService)
 
 TEST(TESTSuite1, checktfbroadcast)
 {
+  ros::NodeHandle nh;
   tf::StampedTransform transform;
   tf::TransformListener listener;
   
@@ -43,11 +44,5 @@ TEST(TESTSuite1, checktfbroadcast)
   EXPECT_TRUE((z_coord >= -20) && (z_coord <= 20));
 }
 
-int main(int argc, char **argv)
-{
-  ros::init(argc, argv, "testpublisher");
-  nh.reset(new ros::NodeHandle);
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+
 
