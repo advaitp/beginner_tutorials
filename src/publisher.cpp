@@ -26,11 +26,11 @@
  * SOFTWARE.
  */
 
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/change_string.h"
-#include <tf/transform_broadcaster.h>
 
 // Default string that will be displayed
 extern std::string new_str = "Changed output string";
@@ -44,8 +44,8 @@ extern std::string new_str = "Changed output string";
  * @param resp
  * @return true
  */
-bool change(beginner_tutorials::change_string::Request &req, 
-  beginner_tutorials::change_string::Response &res) {
+  bool change(const beginner_tutorials::change_string::Request &req,
+  const beginner_tutorials::change_string::Response &res) {
   res.output = req.input;
   new_str = res.output;
   ROS_INFO("String has been modified to %s", res.output.c_str());
@@ -160,7 +160,8 @@ int main(int argc, char **argv)  {
         tf::Quaternion q;
         q.setRPY(4.0, 3.0, 2.0);
         transform.setRotation(q);
-        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+        br.sendTransform(tf::StampedTransform(transform,
+      ros::Time::now(), "world", "talk"));
 
         ros::spinOnce();
 

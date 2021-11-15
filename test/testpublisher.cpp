@@ -29,15 +29,15 @@
 #include <ros/ros.h>
 #include <ros/service_client.h>
 #include <gtest/gtest.h>
-#include "beginner_tutorials/change_string.h"
 #include <tf/transform_broadcaster.h>
+#include "beginner_tutorials/change_string.h"
 #include "tf/transform_listener.h"
 
 
-TEST(TESTSuite, checkService)
-{
+TEST(TESTSuite, checkService) {
   ros::NodeHandle nh;
-  ros::ServiceClient client = nh.serviceClient<beginner_tutorials::change_string>("change_string");
+  ros::ServiceClient client =
+  nh.serviceClient<beginner_tutorials::change_string>("change_string");
   bool exists(client.waitForExistence(ros::Duration(1)));
   EXPECT_TRUE(exists);
 
@@ -47,12 +47,10 @@ TEST(TESTSuite, checkService)
   EXPECT_EQ(srv.response.output, "Test for service call");
 }
 
-TEST(TESTSuite1, checktfbroadcast)
-{
+TEST(TESTSuite1, checktfbroadcast) {
   ros::NodeHandle nh;
   tf::StampedTransform transform;
   tf::TransformListener listener;
-  
   while (ros::ok()) {
     try {
       listener.lookupTransform("talk", "world", ros::Time(0), transform);
@@ -63,7 +61,7 @@ TEST(TESTSuite1, checktfbroadcast)
     }
   }
 
-  int x_coord, y_coord, z_coord ;
+  int x_coord, y_coord, z_coord;
   x_coord = transform.getOrigin().x();
   y_coord = transform.getOrigin().y();
   z_coord = transform.getOrigin().z();
