@@ -49,17 +49,71 @@ cd ~/catkin_ws
 source ./devel/setup.bash
 roslaunch beginner_tutorials nodes.launch rate:="5"
 ```
-6.To call the service to change the string
+6. To call the service to change the string
 ```
 cd ~/catkin_ws
 source ./devel/setup.bash
 rosservice call /change_string "Add new string"
 ```
-7.To check the logging level using rqt_console and rqt_logger_level
+7. To check the logging level using rqt_console and rqt_logger_level
 ```
 rosrun rqt_logger_level rqt_logger_level
 ```
-8.In new terminal 
+8. In new terminal 
 ```
 rosrun rqt_console rqt_console
 ``` 
+9. Inspect tf frames 
+```
+roslaunch beginner_tutorials nodes.launch
+rosrun tf tf_echo /world /talk
+rosrun rqt_tf_tree rqt_tf_tree
+``` 
+10. Running rostest
+
+  First we need to make ros tests which can be done with following command
+```
+cd ~/catkin_ws
+catkin_make run_tests
+source ./devel/setup.bash
+```
+
+  To run the rostest use the following command
+```
+roslaunch beginner_tutorials nodes.launch
+rostest beginner_tutorials nodetest.launch
+``` 
+11. Recording bag files
+
+  To record a bag file
+
+```
+roslaunch beginner_tutorials nodes.launch record:=true
+```
+
+  To disable bag file recording 
+```
+roslaunch beginner_tutorials nodes.launch
+```
+
+  Inspecting rosbag file
+```
+cd ~/catkin_ws/src/beginner_tutorials/results
+rosbag info <your_bag_file>.bag
+```
+
+  Playing back the bag file with the Listener node demonstration
+```
+roscore
+```
+  In seperate terminal use the below command to record the rosbag.
+```
+cd ~/catkin_ws/src/beginner_tutorials/results
+rosbag play <your_bag_file>.bag
+```
+ In new terminal
+```
+rosrun beginner_tutorials subscriber
+```
+  The listener node will be able to show the data recorded by rosbag from talker node.
+
