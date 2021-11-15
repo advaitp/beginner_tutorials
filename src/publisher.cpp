@@ -44,8 +44,9 @@ extern std::string new_str = "Changed output string";
  * @param resp
  * @return true
  */
-  bool change(const beginner_tutorials::change_string::Request &req,
-  const beginner_tutorials::change_string::Response &res) {
+  
+bool change(beginner_tutorials::change_string::Request &req,
+  beginner_tutorials::change_string::Response &res) {
   res.output = req.input;
   new_str = res.output;
   ROS_INFO("String has been modified to %s", res.output.c_str());

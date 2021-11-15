@@ -31,6 +31,16 @@
 #include <ros/service_client.h>
 #include <gtest/gtest.h>
 
+
+/**
+ * @brief  main function to run the rostests
+ *
+ * @pre
+ * @post
+ * @param argc
+ * @param argv
+ * @return RUN_ALL_TESTS()
+ */
 int main(int argc, char **argv) {
   ros::init(argc, argv, "testpublisher");
   testing::InitGoogleTest(&argc, argv);

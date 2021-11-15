@@ -33,7 +33,9 @@
 #include "beginner_tutorials/change_string.h"
 #include "tf/transform_listener.h"
 
-
+/**
+ * @brief  Test to check if the rosservice is returning the string
+ */
 TEST(TESTSuite, checkService) {
   ros::NodeHandle nh;
   ros::ServiceClient client =
@@ -47,6 +49,9 @@ TEST(TESTSuite, checkService) {
   EXPECT_EQ(srv.response.output, "Test for service call");
 }
 
+/**
+ * @brief  Test to check the tf broadcast
+ */
 TEST(TESTSuite1, checktfbroadcast) {
   ros::NodeHandle nh;
   tf::StampedTransform transform;
